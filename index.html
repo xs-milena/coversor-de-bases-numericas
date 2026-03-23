@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MILENA'S MACHINE</title>
+
+    <style>
+        
+        /*importando as fontes*/
+        @font-face {
+            font-family: 'Antonio';
+            src: url(fonts/Antonio-VariableFont_wght.ttf);
+        }
+
+        @font-face {
+            font-family: 'Poppins';
+            src: url(fonts/Poppins-Regular.ttf);
+        }
+
+        body {
+            background-image: url(img/fundo2.jpg);
+            background-repeat: no-repeat; /*imagem não repete na tela*/
+            background-size: cover; /*imagem cabe na tela todqa*/
+        }
+
+       .titulo {
+            color: white;
+            font-family: 'Antonio';
+            font-size: 60px;
+            text-shadow:  /*glow no titúlo -  aspecto de brilho*/
+                0 0 10px rgba(255, 255, 255, 0.668),
+                0 0 25px rgba(255, 255, 255, 0.275);
+        }
+
+        .subtitulo {
+            color: white;
+            font-family: 'Poppins';
+            font-size: 18px;
+            margin-top: -40px;
+            margin-bottom: 40px;
+
+            text-shadow: /*glow no subtitúlo -  aspecto de brilho*/
+                0 0 8px rgba(255,255,255,0.5);
+        }
+
+        /*caixa onde ficam as informações*/
+        #caixa {
+            background-color: rgba(0, 0, 0, 0.805);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            width: 60%;
+            height: 480px;
+            color: white;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            font-family: 'Poppins';
+
+            /*glow na caixa - aspecto de brilho*/
+            box-shadow: 
+                0 0 20px rgba(255, 255, 255, 0.08),
+                0 0 40px rgba(255, 255, 255, 0.207);
+            margin-bottom: 70px;
+        }
+
+        input {
+            width: 85%;
+            background: #1d1d20d1;
+            height: 30px;
+            padding: 15px;
+            font-size: 15px;
+            color: white;
+            border-radius: 15px;
+            border: none; /*sem borda*/
+            outline: none; /* sem linha na borda*/
+            margin-bottom: 5px;
+        }
+
+        button {
+            width: 240px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: #5a5a5aaf;
+            color: white;
+            border: none;
+            margin-bottom: 10px;
+        }
+
+        /*container que engloba todas as caixinhas*/
+        #respostas {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 10px;
+        }
+
+
+        /*caixinhas*/
+        #demo2, #demo3, #demo4, #demo5 {
+            color: #929293;
+            width: 390px;
+            height: 70px;
+            background-color: #1d1d20ab;
+            border-radius: 15px;
+
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .base {
+            font-size: 15px;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <p class="titulo">MILENA'S MACHINE</p>
+        <p class="subtitulo">CONVERSOR DE BASES NUMÉRICAS</p>
+
+        <div id="caixa">
+            <p class="info">DIGITE UM NÚMERO DECIMAL</p>
+
+            <input id="demo1" type="text" placeholder="Ex: 42">
+            <br><br>
+
+            <button onclick="converter()">CONVERTER</button>
+
+            <div id="respostas">
+                <div id="part1">
+                    <p class="base">DECIMAL</p>
+                    <div id="demo2"></div>
+                    <p class="base">OCTAL</p>
+                    <div id="demo3"></div>
+                </div>
+                <div id="part2">
+                    <p class="base">HEXADECIMAL</p>
+                    <div id="demo4"></div>
+                    <p class="base">BINÁRIO</p>
+                    <div id="demo5"></div>
+                </div>
+            </div>
+        </div>
+    </center>
+
+    <script>
+        function converter() {
+            var decimal = Number(demo1.value);
+
+            demo2.innerHTML = decimal.toString(10);
+            demo3.innerHTML = decimal.toString(8);
+            demo4.innerHTML = decimal.toString(16);
+            demo5.innerHTML = decimal.toString(2);
+        }
+    </script>
+</body>
+
+</html>
